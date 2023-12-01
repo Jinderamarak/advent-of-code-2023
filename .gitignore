@@ -2,4 +2,7 @@
 .vscode
 .fleet
 
+.env
+
 target
+inputs/full
