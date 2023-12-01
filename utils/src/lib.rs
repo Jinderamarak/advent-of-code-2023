@@ -97,7 +97,7 @@ mod tests {
 
     #[test]
     fn test_get_example_input() {
-        let input = super::get_example_input("test.txt").unwrap();
+        let input = get_example_input("test.txt").unwrap();
         assert_eq!("test case input\n123\n", input);
     }
 }
