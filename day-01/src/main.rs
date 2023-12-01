@@ -1,3 +1,42 @@
+mod first;
+mod second;
+
+use first::first;
+use second::second;
+
 fn main() {
-    println!("Hello, world!");
+    let full = utils::load_input("01-full.txt");
+
+    let first_output = first(&full);
+    let first_sum = first_output.iter().sum::<u32>();
+    println!("First answer: {first_sum}");
+
+    let second_output = second(&full);
+    let second_sum = second_output.iter().sum::<u32>();
+    println!("Second answer: {second_sum}");
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    use first::first;
+    use second::second;
+
+    #[test]
+    fn first_example() {
+        let input = utils::load_input("01-example-first.txt");
+        let output = first(&input);
+
+        let expected = vec![12, 38, 15, 77];
+        assert_eq!(expected, output);
+    }
+
+    #[test]
+    fn second_example() {
+        let input = utils::load_input("01-example-second.txt");
+        let output = second(&input);
+
+        let expected = vec![29, 83, 13, 24, 42, 14, 76];
+        assert_eq!(expected, output);
+    }
 }
