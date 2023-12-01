@@ -5,6 +5,7 @@ use std::{
     path::PathBuf,
 };
 
+/// Loads text file from the `inputs` folder.
 pub fn get_example_input(name: &str) -> anyhow::Result<String> {
     let inputs = get_path_to_inputs()?;
     let full = inputs.join(name);
@@ -12,6 +13,8 @@ pub fn get_example_input(name: &str) -> anyhow::Result<String> {
     Ok(data)
 }
 
+/// Fetches the input from the AoC API.
+/// Requires AOC_SESSION env variable set.
 pub fn get_full_input(year: u16, day: u8) -> anyhow::Result<String> {
     if has_local(year, day)? {
         load_local(year, day)
