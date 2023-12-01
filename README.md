@@ -12,7 +12,7 @@ let input = utils::get_example_input("01/first.txt").unwrap();
 ```
 
 ## `utils::get_full_input`
-Loads your input from AoC API.
+Loads your input from AoC API and caches it in the folder `inputs/full`.
 
 Requires you to set environmental variable `AOC_SESSION`
 or create `.env` file using the `.env.example` template.
