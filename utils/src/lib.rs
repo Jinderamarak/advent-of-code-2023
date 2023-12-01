@@ -90,3 +90,14 @@ fn readdir_contains_inputs(dir: ReadDir) -> anyhow::Result<bool> {
 
     Ok(false)
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn test_get_example_input() {
+        let input = super::get_example_input("test.txt").unwrap();
+        assert_eq!("test case input\n123\n", input);
+    }
+}
