@@ -7,8 +7,8 @@
 Loads text file from the `inputs` folder.
 
 ```rust
-//  Loads file inputs/01-first.txt
-let input = utils::get_example_input("01-first.txt").unwrap();
+//  Loads file inputs/01/first.txt
+let input = utils::get_example_input("01/first.txt").unwrap();
 ```
 
 ## `utils::get_full_input`

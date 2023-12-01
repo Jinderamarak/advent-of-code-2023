@@ -24,7 +24,7 @@ mod tests {
 
     #[test]
     fn first_example() {
-        let input = utils::get_example_input("01-first.txt").unwrap();
+        let input = utils::get_example_input("01/first.txt").unwrap();
         let output = first(&input);
 
         let expected = vec![12, 38, 15, 77];
@@ -33,7 +33,7 @@ mod tests {
 
     #[test]
     fn second_example() {
-        let input = utils::get_example_input("01-second.txt").unwrap();
+        let input = utils::get_example_input("01/second.txt").unwrap();
         let output = second(&input);
 
         let expected = vec![29, 83, 13, 24, 42, 14, 76];
