@@ -5,12 +5,13 @@ mod parsing;
 fn main() {
     let full = utils::get_full_input(2023, 2).unwrap();
 
-    let first = part_one(&full).iter().sum::<u32>();
+    let first_output = part_one(&full);
+    let first_sum = first_output.iter().sum::<u32>();
+    println!("Part one answer: {first_sum}");
 
-    let second = part_two(&full).iter().sum::<u32>();
-
-    println!("{first:?}");
-    println!("{second:?}");
+    let second_output = part_two(&full);
+    let second_sum = second_output.iter().sum::<u32>();
+    println!("Part two answer: {second_sum}");
 }
 
 const AVAILABLE_CUBES: Cubes = Cubes {
@@ -46,7 +47,7 @@ mod tests {
     use super::*;
 
     #[test]
-    fn first_example() {
+    fn part_one_example() {
         let input = utils::get_example_input("02/first.txt").unwrap();
         let output = part_one(&input);
 
@@ -55,7 +56,7 @@ mod tests {
     }
 
     #[test]
-    fn second_example() {
+    fn part_two_example() {
         let input = utils::get_example_input("02/first.txt").unwrap();
         let output = part_two(&input);
 

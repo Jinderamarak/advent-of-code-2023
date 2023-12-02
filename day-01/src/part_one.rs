@@ -1,4 +1,4 @@
-pub fn first(data: &str) -> Vec<u32> {
+pub fn get_values(data: &str) -> Vec<u32> {
     data.lines()
         .map(|line| {
             let digits = line

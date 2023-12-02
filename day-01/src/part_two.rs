@@ -19,7 +19,7 @@ const WORDIGITS: [(&'static str, u32); 18] = [
     ("9", 9),
 ];
 
-pub fn second(data: &str) -> Vec<u32> {
+pub fn get_values(data: &str) -> Vec<u32> {
     data.lines()
         .map(|l| {
             let first = first_wordigit(l);
