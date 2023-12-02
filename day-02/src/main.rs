@@ -51,6 +51,14 @@ impl Cubes {
     fn fits_within(&self, rules: &Cubes) -> bool {
         self.red <= rules.red && self.green <= rules.green && self.blue <= rules.blue
     }
+
+    fn max(&self, other: &Cubes) -> Cubes {
+        Cubes {
+            red: self.red.max(other.red),
+            green: self.green.max(other.green),
+            blue: self.blue.max(other.blue),
+        }
+    }
 }
 
 #[derive(Debug)]
@@ -75,32 +83,19 @@ const ALL_CUBES: Cubes = Cubes {
 };
 
 fn part_one(data: &str) -> Vec<u32> {
-    let games = data.lines().map(Game::parse).collect::<Vec<_>>();
-
-    let mut possible_ids = Vec::new();
-    for game in games {
-        let possible = game.peeks.iter().all(|peek| peek.fits_within(&ALL_CUBES));
-        if possible {
-            possible_ids.push(game.id);
-        }
-    }
-
-    possible_ids
+    data.lines()
+        .map(Game::parse)
+        .filter(|game| game.peeks.iter().all(|peek| peek.fits_within(&ALL_CUBES)))
+        .map(|game| game.id)
+        .collect()
 }
 
 fn part_two(data: &str) -> Vec<u32> {
-    let games = data.lines().map(Game::parse).collect::<Vec<_>>();
-    games
-        .iter()
+    data.lines()
+        .map(Game::parse)
         .map(|game| {
-            let init = Cubes::zero();
-            let min = game.peeks.iter().fold(init, |acc, x| Cubes {
-                red: acc.red.max(x.red),
-                green: acc.green.max(x.green),
-                blue: acc.blue.max(x.blue),
-            });
-
-            min.red * min.green * min.blue
+            let max = game.peeks.iter().fold(Cubes::zero(), |a, b| a.max(b));
+            max.red * max.green * max.blue
         })
         .collect()
 }
