@@ -37,7 +37,7 @@ impl StrNum {
                 }
                 nums.push(chars[i].to_digit(10).unwrap());
             } else {
-                if (nums.len() > 0) {
+                if nums.len() > 0 {
                     results.push(StrNum::single(start, y, &nums));
                 }
                 nums.clear();
