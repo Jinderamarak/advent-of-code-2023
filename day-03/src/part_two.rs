@@ -17,11 +17,11 @@ pub fn get_gear_ratios(data: &str) -> Vec<u32> {
                 .map(move |(x, _)| (x, y))
         })
         .flatten()
-        .filter_map(|(x, y)| get_gear_ratio(x, y, &numbers))
+        .filter_map(|(x, y)| try_get_gear_ratio(x, y, &numbers))
         .collect()
 }
 
-fn get_gear_ratio(x: usize, y: usize, numbers: &[StrNum]) -> Option<u32> {
+fn try_get_gear_ratio(x: usize, y: usize, numbers: &[StrNum]) -> Option<u32> {
     let adjacent: Vec<&StrNum> = numbers.iter().filter(|n| n.is_adjacent(x, y)).collect();
     if adjacent.len() == 2 {
         Some(adjacent[0].value * adjacent[1].value)
