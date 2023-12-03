@@ -1,4 +1,4 @@
-use super::parsing::{Game, Cubes};
+use super::parsing::{Cubes, Game};
 
 pub fn get_game_powers(data: &str) -> Vec<u32> {
     data.lines()

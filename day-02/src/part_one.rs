@@ -1,4 +1,4 @@
-use super::parsing::{Game, Cubes};
+use super::parsing::{Cubes, Game};
 
 const AVAILABLE_CUBES: Cubes = Cubes {
     red: 12,
