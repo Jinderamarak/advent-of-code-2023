@@ -1,7 +1,10 @@
 use super::parsing::ScratchCard;
 
 pub fn get_points_per_card(data: &str) -> Vec<u32> {
-    data.lines().map(ScratchCard::parse).map(count_score).collect()
+    data.lines()
+        .map(ScratchCard::parse)
+        .map(count_score)
+        .collect()
 }
 
 fn count_score(card: ScratchCard) -> u32 {

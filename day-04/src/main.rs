@@ -9,7 +9,7 @@ fn main() {
     let first_sum = first_output.iter().sum::<u32>();
     println!("Part one answer: {first_sum}");
 
-    let second_output = part_two::get_scratchcards_count(&full);
+    let second_output = part_two::get_scratchcards_counts(&full);
     let second_sum = second_output.iter().sum::<u32>();
     println!("Part two answer: {second_sum}");
 }
@@ -30,7 +30,7 @@ mod tests {
     #[test]
     fn part_two_example() {
         let input = utils::get_example_input("04/first.txt").unwrap();
-        let output = part_two::get_scratchcards_count(&input);
+        let output = part_two::get_scratchcards_counts(&input);
 
         let expected = vec![1, 2, 4, 8, 14, 1];
         assert_eq!(expected, output);

@@ -11,9 +11,7 @@ impl ScratchCard {
 
         let winning = Self::get_num_list(parts[0]);
         let numbers = Self::get_num_list(parts[1]);
-        ScratchCard {
-            winning, numbers
-        }
+        ScratchCard { winning, numbers }
     }
 
     fn get_num_list(list: &str) -> Vec<u32> {
