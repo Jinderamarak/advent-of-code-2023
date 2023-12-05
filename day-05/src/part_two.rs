@@ -6,12 +6,14 @@ pub fn seeds_to_locations(data: &str) -> Vec<u32> {
     let almanac = Almanac::parse(data);
     let ranges = iter_pairs(almanac.seeds.iter());
 
-    let seeds: Vec<_> =
-     ranges.iter()
+    let seeds: Vec<_> = ranges
+        .iter()
         .map(|(s, l)| **s..(**s + **l))
-        .flatten().collect();
+        .flatten()
+        .collect();
 
-    seeds.par_iter()
+    seeds
+        .par_iter()
         .map(|seed| seed_to_location(&seed, &almanac))
         .collect()
 }
