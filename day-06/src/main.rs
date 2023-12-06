@@ -6,13 +6,12 @@ fn main() {
     let full = utils::get_full_input(2023, 6).unwrap();
 
     let first_output = part_one::solve(&full);
-    let first_min = first_output.iter().min().unwrap();
-    println!("Part one answer: {first_min}");
-    /*
-    let second_output = part_two::seeds_to_locations(&full);
-    let second_min = second_output.iter().min().unwrap();
-    println!("Part two answer: {second_min}");
-    */
+    let first_product = first_output.iter().product::<u32>();
+    println!("Part one answer: {first_product}");
+
+    let second_output = part_two::solve(&full);
+    println!("Part two answer: {second_output}");
+
 }
 
 #[cfg(test)]
@@ -24,17 +23,15 @@ mod tests {
         let input = utils::get_example_input("06/first.txt").unwrap();
         let output = part_one::solve(&input);
 
-        let expected = vec![1, 2, 3];
+        let expected = vec![4, 8, 9];
         assert_eq!(expected, output);
     }
-    /*
+
     #[test]
     fn part_two_example() {
-        let input = utils::get_example_input("05/first.txt").unwrap();
-        let output = part_two::seeds_to_locations(&input);
+        let input = utils::get_example_input("06/first.txt").unwrap();
+        let output = part_two::solve(&input);
 
-        assert_eq!(27, output.len());
-        assert_eq!(46, *output.iter().min().unwrap());
+        assert_eq!(71503, output);
     }
-    */
 }
