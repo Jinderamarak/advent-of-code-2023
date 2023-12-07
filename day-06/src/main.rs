@@ -11,7 +11,6 @@ fn main() {
 
     let second_output = part_two::solve(&full);
     println!("Part two answer: {second_output}");
-
 }
 
 #[cfg(test)]
