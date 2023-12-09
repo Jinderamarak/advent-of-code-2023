@@ -35,11 +35,7 @@ fn reach_z(node: &Node, map: &Map) -> u32 {
 }
 
 fn lcm(values: &[u32]) -> u64 {
-    values
-        .iter()
-        .map(|i| *i as u64)
-        .reduce(lcm_two)
-        .unwrap()
+    values.iter().map(|i| *i as u64).reduce(lcm_two).unwrap()
 }
 
 fn lcm_two(a: u64, b: u64) -> u64 {
@@ -74,7 +70,9 @@ mod tests {
 
     #[test]
     fn test_lcm_many() {
-        let n = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 15, 15, 15, 15];
+        let n = [
+            2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 15, 15, 15, 15,
+        ];
         let lcm = lcm(&n);
 
         assert_eq!(360360, lcm)
