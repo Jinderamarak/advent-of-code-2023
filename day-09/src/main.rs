@@ -11,7 +11,7 @@ fn main() {
 
     let second_output = part_two::solve(&full);
     let second_sum = second_output.iter().sum::<i64>();
-    println!("Part one answer: {second_sum}");
+    println!("Part two answer: {second_sum}");
 }
 
 #[cfg(test)]
