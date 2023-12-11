@@ -59,20 +59,6 @@ impl Image {
 
         result
     }
-
-    pub fn print(&self) {
-        println!("");
-        for y in 0..self.h {
-            for x in 0..self.w {
-                if self.data[y][x] == Cell::Galaxy {
-                    print!("#");
-                } else {
-                    print!(".");
-                }
-            }
-            println!();
-        }
-    }
 }
 
 impl Cell {
@@ -83,4 +69,25 @@ impl Cell {
             _ => panic!("Unknown cell type"),
         }
     }
+}
+
+pub fn stretch_point(
+    p: (usize, usize),
+    rows: &Vec<usize>,
+    cols: &Vec<usize>,
+    stretcher: usize,
+) -> (usize, usize) {
+    let (x, y) = p;
+    let rows = rows.iter().filter(|n| **n < y).count();
+    let cols = cols.iter().filter(|n| **n < x).count();
+    (x - cols + cols * stretcher, y - rows + rows * stretcher)
+}
+
+pub fn point_distance(p1: &(usize, usize), p2: &(usize, usize)) -> usize {
+    let (x1, y1) = (p1.0 as isize, p1.1 as isize);
+    let (x2, y2) = (p2.0 as isize, p2.1 as isize);
+
+    let dx = (x1 - x2).abs() as usize;
+    let dy = (y1 - y2).abs() as usize;
+    dx + dy
 }
