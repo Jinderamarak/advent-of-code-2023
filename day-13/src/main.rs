@@ -1,6 +1,6 @@
-mod parsing;
 mod part_one;
 mod part_two;
+mod shared;
 
 fn main() {
     let full = utils::get_full_input(2023, 13).unwrap();
