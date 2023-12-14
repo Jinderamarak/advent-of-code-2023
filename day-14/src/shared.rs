@@ -9,17 +9,31 @@ pub struct Platform {
 pub enum Tile {
     Rock,
     Cube,
-    Air
+    Air,
 }
 
 impl Platform {
     pub fn parse(data: &str) -> Platform {
-        let rows: Vec<Vec<Tile>> = data.lines().map(|l| l.chars().map(Tile::parse).collect()).collect();
+        let rows: Vec<Vec<Tile>> = data
+            .lines()
+            .map(|l| l.chars().map(Tile::parse).collect())
+            .collect();
+
         Platform {
             w: rows[0].len(),
             h: rows.len(),
             rows,
         }
+    }
+
+    pub fn calculate_load(&self) -> u64 {
+        let mut sum = 0;
+        for y in 0..self.h {
+            let n = self.h - y;
+            sum += self.rows[y].iter().filter(|t| **t == Tile::Rock).count() * n;
+        }
+
+        sum.try_into().unwrap()
     }
 
     pub fn print(&self) {

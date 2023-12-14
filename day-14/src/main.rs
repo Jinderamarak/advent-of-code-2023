@@ -7,7 +7,7 @@ fn main() {
 
     let first_output = part_one::solve(&full);
     println!("Part one answer: {first_output}");
-    
+
     /*
     let second_output = part_two::solve(&full);
     let second_sum = second_output.iter().sum::<u32>();
@@ -27,7 +27,7 @@ mod tests {
         let expected = 136;
         assert_eq!(expected, output);
     }
-    
+
     /*
     #[test]
     fn part_two_example() {
