@@ -6,8 +6,7 @@ fn main() {
     let full = utils::get_full_input(2023, 14).unwrap();
 
     let first_output = part_one::solve(&full);
-    let first_sum = first_output.iter().sum::<u32>();
-    println!("Part one answer: {first_sum}");
+    println!("Part one answer: {first_output}");
     
     /*
     let second_output = part_two::solve(&full);
@@ -25,7 +24,7 @@ mod tests {
         let input = utils::get_example_input("14/first.txt").unwrap();
         let output = part_one::solve(&input);
 
-        let expected = vec![5, 400];
+        let expected = 136;
         assert_eq!(expected, output);
     }
     
